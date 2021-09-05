@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+
+    agent {
+        docker {
+            image 'gcr.io/kaniko-project/executor:debug'
+        }
+    
+    }
     stages {
         stage('Build') {
             steps {
