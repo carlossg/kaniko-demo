@@ -2,7 +2,7 @@ pipeline {
 
     agent {
         docker {
-            image 'gcr.io/kaniko-project/executor:debug'
+            image 'alpine:3.14'
         }
     
     }
