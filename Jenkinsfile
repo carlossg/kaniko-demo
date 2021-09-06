@@ -1,18 +1,17 @@
 pipeline {
 
-   /* agent {
+   agent {
         docker {
             image 'alpine:3.14'
         }
     
     }
-    */
-    agent any
+    
+    //agent any
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo $JOB_NAME
             }
         }
         stage('Test') {
