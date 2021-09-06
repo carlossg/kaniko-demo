@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo $BRANCH_NAME
+                echo $JOB_NAME
             }
         }
         stage('Test') {
