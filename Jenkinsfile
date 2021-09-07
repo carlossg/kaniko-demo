@@ -19,7 +19,18 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mkdir -p /kaniko/.docker'
-                sh 'echo "{\\"auths\\":{\\"$DOCKER_REGISTRY\\":{\\"username\\":\\"$DOCKER_USERNAME\\",\\"password\\":\\"$DOCKER_PASSWORD\\"}}}" > /kaniko/.docker/config.json'
+                sh '''
+                AUTH=$(echo -n "${DOCKER_USERNAME}:${DOCKER_PASSWORD}" | base64)
+                cat << EOF > /kaniko/.docker/config.json
+                   {
+                     "auths": {
+                     "https://index.docker.io/v1/": {
+                     "auth": "${AUTH}"
+                     }
+                   }
+                  }
+EOF
+                '''
                 sh '''
                     /kaniko/executor \
                         --cache=true \
