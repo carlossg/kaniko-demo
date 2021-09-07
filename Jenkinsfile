@@ -29,6 +29,7 @@ pipeline {
                 script {
                     echo env.GIT_BRANCH
                     sh 'echo $WORKSPACE'
+                    hostname
                 }
             }
         }
