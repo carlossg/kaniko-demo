@@ -21,6 +21,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+
+                script {
+                    echo $BRANCH_NMAE
+                }
             }
         }
         stage('Deploy') {
