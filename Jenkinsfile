@@ -18,14 +18,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mkdir -p /kaniko/.docker'
                 sh '''
+                mkdir -p /kaniko/.docker
                 AUTH=$(echo -n "${DOCKER_USERNAME}:${DOCKER_PASSWORD}" | base64)
                 cat << EOF > /kaniko/.docker/config.json
                    {
                      "auths": {
                      "https://index.docker.io/v1/": {
-                          "auth": "${AUTH}"
+                     "auth": "${AUTH}"
                      }
                    }
                   }
