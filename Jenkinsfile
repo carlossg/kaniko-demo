@@ -27,7 +27,7 @@ pipeline {
                 echo 'Testing..'
 
                 script {
-                    echo $BRANCH_NMAE
+                    echo env.BRANCH_NMAE
                 }
             }
         }
