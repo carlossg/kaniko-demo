@@ -25,6 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                hostname
 
                 script {
                     echo env.GIT_BRANCH
@@ -35,6 +36,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh 'hostname'
             }
         }
     }
