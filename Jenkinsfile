@@ -27,7 +27,8 @@ pipeline {
                 echo 'Testing..'
 
                 script {
-                    echoe env.GIT_BRANCH
+                    echo env.GIT_BRANCH
+                    echo env.GIT_COMMIT
                 }
             }
         }
