@@ -28,7 +28,7 @@ pipeline {
 
                 script {
                     echo env.GIT_BRANCH
-                    echo env.GIT_COMMIT
+                    git show env.GIT_COMMIT
                 }
             }
         }
