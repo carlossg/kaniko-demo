@@ -27,7 +27,7 @@ pipeline {
                 echo 'Testing..'
 
                 script {
-                    echo env.BRANCH_NMAE
+                    echoe env.GIT_BRANCH
                 }
             }
         }
