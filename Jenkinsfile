@@ -1,14 +1,14 @@
 pipeline {
 
-   /*agent {
+    agent {
         docker {
             image 'gcr.io/kaniko-project/executor:debug'
         }
     
     }
-    */
+    
 
-    agent any
+    //agent any
     environment {
         DOCKER_REGISTRY                 = 'foo.bar'
     }
