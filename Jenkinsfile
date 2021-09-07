@@ -14,6 +14,8 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo env.BRANCH_NAME
+                echo env.SERVICE_NAME
+                echo env.JOB_NAME
             }
         }
         stage('Test') {
