@@ -28,7 +28,7 @@ pipeline {
 
                 script {
                     echo env.GIT_BRANCH
-                    git show env.GIT_COMMIT
+                    sh 'git show env.GIT_COMMIT'
                 }
             }
         }
