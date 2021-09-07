@@ -28,7 +28,7 @@ pipeline {
 
                 script {
                     echo env.GIT_BRANCH
-                    sh '/kaniko/executor'
+                    sh 'echo env.WORKSPACE'
                 }
             }
         }
