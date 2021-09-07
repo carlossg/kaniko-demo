@@ -9,6 +9,9 @@ pipeline {
     */
 
     agent any
+    environment {
+        DOCKER_REGISTRY                 = 'foo.bar'
+    }
     stages {
         stage('Build') {
             steps {
@@ -23,7 +26,7 @@ pipeline {
                 echo 'Testing..'
 
                 script {
-                    echo env.BRANCH_NMAE
+                    echo $BRANCH_NMAE
                 }
             }
         }
