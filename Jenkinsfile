@@ -28,7 +28,7 @@ pipeline {
 
                 script {
                     echo env.GIT_BRANCH
-                    sh 'echo env.WORKSPACE'
+                    sh 'echo $WORKSPACE'
                 }
             }
         }
