@@ -12,14 +12,25 @@ pipeline {
     //agent any
     environment {
         DOCKER_REGISTRY                 = 'foo.bar'
+        DOCKER_USERNAME='xinwen0328'
+        DOCKER_PASSWORD='t5EwWRjz!'
     }
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-                echo env.BRANCH_NAME
-                echo env.SERVICE_NAME
-                echo env.JOB_NAME
+                sh 'mkdir -p /kaniko/.docker'
+                sh '''
+                AUTH=$(echo -n "${DOCKER_USERNAME}:${DOCKER_PASSWORD}" | base64)
+                cat << EOF > /kaniko/.docker/config.json
+                   {
+                     "auths": {
+                     "https://index.docker.io/v1/": {
+                          "auth": "${AUTH}"
+                     }
+                   }
+                  }
+EOF
+                '''
             }
         }
         stage('Test') {
