@@ -25,11 +25,12 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'hostname'
 
                 script {
                     echo env.GIT_BRANCH
                     sh 'echo $WORKSPACE'
-                    hostname
+
                 }
             }
         }
