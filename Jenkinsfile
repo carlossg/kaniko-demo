@@ -20,6 +20,13 @@ pipeline {
             steps {
                 sh 'mkdir -p /kaniko/.docker'
                 sh 'echo "{\\"auths\\":{\\"$DOCKER_REGISTRY\\":{\\"username\\":\\"$DOCKER_USERNAME\\",\\"password\\":\\"$DOCKER_PASSWORD\\"}}}" > /kaniko/.docker/config.json'
+                sh '''
+                    /kaniko/executor \
+                        --cache=true \
+                        --context $WORKSPACE \
+                        --dockerfile $WORKSPACE/Dockerfile \
+                        --destination "xinwen0328/kaniko-demo:kaniko-docker" 
+                '''
             }
         }
         stage('Test') {
